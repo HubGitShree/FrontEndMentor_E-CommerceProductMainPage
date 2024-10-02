@@ -33,14 +33,19 @@ Users should be able to:
 
 ### Screenshot
 
-![](./images/DesktopView_Anushree.png) (./images/AddToCart_Anushree.png) (images\LightBoxModal_Anushree.png) (images\MobileViewGallery_Anushree.png) (images\ProductDetails_Anushree.png) 
+![](./images/DesktopView_Anushree.png)
+![First Image](./images/AddToCart_Anushree.png)
+![Second Image](./images/LightBoxModal_Anushree.png)
+![First Image](./images/MobileViewGallery_Anushree.png)
+![Second Image](./images/ProductDetails_Anushree.png))
+
 
 
 
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [Github repository](https://your-solution-url.com)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 
