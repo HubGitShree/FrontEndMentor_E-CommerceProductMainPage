@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../images/favicon-32x32.png" type="image/x-icon" />
+
+    <link href="./output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <title>Sneakers</title>
+  </head>
+
+  <body>
+    <!-- Lets start with the header section coded using Tailwind utility classes , N-->
+    <header>
+      <div class="container max-w-[1000px] mx-auto flex justify-between pt-[20px] pb-[30px] border-b px-4 sm:px-0">
+        <div class="left-menu flex items-center gap-12">
+          <!-- sneakers logo -->
+          <img src="../images/logo.svg" alt="sneakers logo" />
+          <!-- navigation links only shown in desktop; in mobile the class is hidden as u can see -->
+          <nav class="hidden md:flex space-x-6 text-gray-500">
+            <a href="#" class="hover:text-black">Collections</a>
+            <a href="#" class="hover:text-black">Men</a>
+            <a href="#" class="hover:text-black">Women</a>
+            <a href="#" class="hover:text-black">About</a>
+            <a href="#" class="hover:text-black">Contact</a>
+          </nav>
+          <!-- Hamburger menu icon for mobile view -->
+          <img src="../images/icon-menu.svg" alt="menu" class="block md:hidden w-6 h-6" />
+        </div>
+    
+        <!-- right-menu section (Cart and Avatar) -->
+        <div class="right-menu flex items-center gap-5">
+          <!-- Cart Icon Container and Popup -->
+          <div id="cartIconContainer" class="relative">
+            <img id="cartIcon" src="../images/icon-cart.svg" alt="cart" class="w-8 h-8 cursor-pointer" />
+            <span id="cartCount" class="hidden absolute top-0 right-0 bg-red-600 text-white text-xs font-bold rounded-full px-2">0</span>
+    
+            <!-- Cart Popup (Positioned relative to the cart icon) -->
+            <div id="cartPopup" class="absolute right-0 mt-2 bg-white shadow-lg w-full sm:w-64 p-4 hidden z-50">
+              <div class="flex justify-between items-center mb-4">
+                <h3 class="font-bold">Cart</h3>
+                <button id="closeCart" class="text-gray-500"><img src="../images/icon-close.svg" alt=""></button>
+              </div>
+              <div id="cartContent">
+                <!-- Empty cart message -->
+                <p id="emptyCart" class="text-center text-gray-500">Your cart is empty</p>
+    
+                <!-- Items in cart -->
+                <div id="cartItems" class="hidden space-y-4">
+                  <!-- Dynamically populated with JS -->
+                </div>
+              </div>
+              <div id="checkoutContainer" class="hidden mt-4">
+                <button id="checkoutButton" class="bg-orange-500 text-white font-bold py-2 w-full rounded-lg">Checkout</button>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Avatar Icon -->
+          <img src="../images/image-avatar.png" alt="avatar" class="h-8 w-8 object-contain" />
+        </div>
+      </div>
+    </header>
+    
+
+    <!-- Product details section using Tailwindcss utility classes-->
+
+    <!-- the below line of code means that on sm that is 640 px and above, padding top will be 20px, and the utilities prior to it are mobile-default. tailwind is mobile( <640px) default there4 on mobile, it will be padding-4 i.e p-4 -->
+    <div
+      class="container max-w-[1000px] mx-auto p-4 sm:pt-20 grid grid-cols-1 lg:grid-cols-2 gap-8"
+    >
+      <!-- Left Column: Product Image and Thumbnails -->
+      <div class="w-full lg:w-3/4">
+        <!-- Main Product Image -->
+        <img
+          id="mainProductImage"
+          src="../images/image-product-1.jpg"
+          alt="Product Image"
+          class="w-full rounded-lg object-cover mb-4 transition-opacity duration-300 ease-in-out cursor-pointer"
+          onclick="openLightbox()"
+        />
+
+        <!-- Thumbnails -->
+        <div class="grid grid-cols-4 gap-2 md:gap-4">
+          <!--Add a thumbnail class to each thumbnail images-->
+          <img
+            src="../images/image-product-1-thumbnail.jpg"
+            alt="Thumbnail 1"
+            class="w-full rounded-lg cursor-pointer border-2 border-orange-400 thumbnail"
+            onclick="updateMainImage(0)"
+          />
+          <img
+            src="../images/image-product-2-thumbnail.jpg"
+            alt="Thumbnail 2"
+            class="w-full rounded-lg cursor-pointer thumbnail"
+            onclick="updateMainImage(1)"
+          />
+          <img
+            src="../images/image-product-3.jpg"
+            alt="Thumbnail 3"
+            class="w-full rounded-lg cursor-pointer thumbnail"
+            onclick="updateMainImage(2)"
+          />
+          <img
+            src="../images/image-product-4-thumbnail.jpg"
+            alt="Thumbnail 4"
+            class="w-full rounded-lg cursor-pointer thumbnail"
+            onclick="updateMainImage(3)"
+          />
+        </div>
+      </div>
+
+      <!-- Right Column: Product Details -->
+      <div class="space-y-4 py-6 sm:py-10">
+        <!-- Product Company Name -->
+        <h4 class="uppercase text-sm tracking-wider text-gray-500">
+          Sneaker Company
+        </h4>
+
+        <!-- Product Title -->
+        <h1 class="text-2xl sm:text-3xl font-bold">
+          Fall Limited Edition Sneakers
+        </h1>
+
+        <!-- Product Description -->
+        <p class="text-gray-500">
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they'll withstand everything
+          the weather can offer.
+        </p>
+
+        <!-- Pricing Section -->
+        <div class="flex items-center space-x-4">
+          <!-- Discounted Price -->
+          <span class="text-3xl font-bold">$125.00</span>
+          <!-- Discount Badge -->
+          <span
+            class="bg-gray-200 text-orange-600 font-bold text-sm px-2 py-1 rounded"
+            >50%</span
+          >
+          <!-- Original Price -->
+          <span class="line-through text-gray-400">$250.00</span>
+        </div>
+
+        <!-- Quantity Selection and Cart Section -->
+
+        <!-- Quantity Selector and Add to Cart Button -->
+        <!-- Quantity Selector and Add to Cart Button -->
+        <div
+          class="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-4"
+        >
+          <!-- Quantity Selector -->
+          <div
+            class="bg-gray-50 flex justify-between items-center border border-gray-300 rounded-lg px-4 py-2 space-x-4 w-full sm:w-auto"
+          >
+            <button class="decrement">
+              <img src="../images/icon-minus.svg" alt="" />
+            </button>
+            <span class="quantity-display">0</span>
+            <!-- Display for quantity -->
+            <button class="increment">
+              <img src="../images/icon-plus.svg" alt="" />
+            </button>
+          </div>
+
+          <!-- Add to Cart Button -->
+          <button
+            class="add-to-cart bg-orange-500 text-black font-bold py-3 px-6 w-full sm:w-auto rounded-lg hover:bg-orange-600 flex justify-center items-center space-x-3"
+          >
+            <!-- Cart Icon -->
+            <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                fill="#69707D"
+                fill-rule="nonzero"
+              />
+            </svg>
+            <p>Add to cart</p>
+          </button>
+        </div>
+
+        <!-- Cart Popup (Initially hidden) -->
+        <div
+          id="cartPopup"
+          class="absolute right-0 mt-12 bg-white shadow-lg w-64 p-4 hidden z-50"
+        >
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="font-bold">Cart</h3>
+            <button id="closeCart" class="text-gray-500">&times;</button>
+          </div>
+          <div id="cartContent">
+            <!-- Empty cart message -->
+            <p id="emptyCart" class="text-center text-gray-500">
+              Your cart is empty
+            </p>
+
+            <!-- Items in cart -->
+            <div id="cartItems" class="hidden">
+              <!-- Dynamically populated with JS -->
+            </div>
+          </div>
+          <div id="checkoutContainer" class="hidden mt-4">
+            <button
+              id="checkoutButton"
+              class="bg-orange-500 text-white font-bold py-2 w-full rounded-lg"
+            >
+              Checkout
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overlayed Lighbox Modal done using Tailwind classes. There is a concept of peer classes too which is not used here-->
+
+    <!-- Lightbox Modal -->
+    <div
+      id="lightbox"
+      class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50"
+    >
+      <div class="relative w-full max-w-2xl mx-auto">
+        <!-- Close Button -->
+        <button
+          id="closeLightbox"
+          class="absolute top-4 right-4 text-white text-3xl"
+        >
+          <img src="../images/icon-close.svg" alt="" />
+        </button>
+
+        <!-- Main Lightbox Image -->
+        <img
+          id="lightboxImage"
+          src=""
+          alt="Enlarged Product Image"
+          class="max-h-[80vh] max-w-full h-auto rounded-lg object-cover mb-4 mx-auto"
+        />
+
+        <!-- Previous and Next Buttons -->
+        <button
+          id="prevImage"
+          class="absolute top-1/2 left-4 transform -translate-y-1/2 text-white text-2xl bg-gray-800 bg-opacity-50 p-3 rounded-full"
+        >
+          <img src="../images/icon-previous.svg" alt="" />
+        </button>
+        <button
+          id="nextImage"
+          class="absolute top-1/2 right-4 transform -translate-y-1/2 text-white text-2xl bg-gray-800 bg-opacity-50 p-3 rounded-full"
+        >
+          <img src="../images/icon-next.svg" alt="" />
+        </button>
+
+        <!-- Thumbnails inside Lightbox -->
+        <div class="grid grid-cols-4 gap-2 md:gap-4 mt-4">
+          <img
+            id="lightbox-thumbnail-0"
+            src="../images/image-product-1-thumbnail.jpg"
+            alt="Lightbox Thumbnail 1"
+            class="w-full rounded-lg cursor-pointer border-2 lightbox-thumbnail"
+            onclick="showLightboxImage(0)"
+          />
+          <img
+            id="lightbox-thumbnail-1"
+            src="../images/image-product-2-thumbnail.jpg"
+            alt="Lightbox Thumbnail 2"
+            class="w-full rounded-lg cursor-pointer lightbox-thumbnail"
+            onclick="showLightboxImage(1)"
+          />
+          <img
+            id="lightbox-thumbnail-2"
+            src="../images/image-product-3-thumbnail.jpg"
+            alt="Lightbox Thumbnail 3"
+            class="w-full rounded-lg cursor-pointer lightbox-thumbnail"
+            onclick="showLightboxImage(2)"
+          />
+          <img
+            id="lightbox-thumbnail-3"
+            src="../images/image-product-4-thumbnail.jpg"
+            alt="Lightbox Thumbnail 4"
+            class="w-full rounded-lg cursor-pointer lightbox-thumbnail"
+            onclick="showLightboxImage(3)"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Javascript source link -->
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+  </body>
+</html>
