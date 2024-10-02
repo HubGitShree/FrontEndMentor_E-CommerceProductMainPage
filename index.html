@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="../images/favicon-32x32.png" type="image/x-icon" />
+    <link rel="icon" href="images/favicon-32x32.png" type="image/x-icon" />
 
-    <link href="./output.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link href="src/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="src/styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <title>Sneakers</title>
@@ -18,7 +18,7 @@
       <div class="container max-w-[1000px] mx-auto flex justify-between pt-[20px] pb-[30px] border-b px-4 sm:px-0">
         <div class="left-menu flex items-center gap-12">
           <!-- sneakers logo -->
-          <img src="../images/logo.svg" alt="sneakers logo" />
+          <img src="images/logo.svg" alt="sneakers logo" />
           <!-- navigation links only shown in desktop; in mobile the class is hidden as u can see -->
           <nav class="hidden md:flex space-x-6 text-gray-500">
             <a href="#" class="hover:text-black">Collections</a>
@@ -28,14 +28,14 @@
             <a href="#" class="hover:text-black">Contact</a>
           </nav>
           <!-- Hamburger menu icon for mobile view -->
-          <img src="../images/icon-menu.svg" alt="menu" class="block md:hidden w-6 h-6" />
+          <img src="images/icon-menu.svg" alt="menu" class="block md:hidden w-6 h-6" />
         </div>
     
         <!-- right-menu section (Cart and Avatar) -->
         <div class="right-menu flex items-center gap-5">
           <!-- Cart Icon Container and Popup -->
           <div id="cartIconContainer" class="relative">
-            <img id="cartIcon" src="../images/icon-cart.svg" alt="cart" class="w-8 h-8 cursor-pointer" />
+            <img id="cartIcon" src="images/icon-cart.svg" alt="cart" class="w-8 h-8 cursor-pointer" />
             <span id="cartCount" class="hidden absolute top-0 right-0 bg-red-600 text-white text-xs font-bold rounded-full px-2">0</span>
     
             <!-- Cart Popup (Positioned relative to the cart icon) -->
@@ -60,7 +60,7 @@
           </div>
     
           <!-- Avatar Icon -->
-          <img src="../images/image-avatar.png" alt="avatar" class="h-8 w-8 object-contain" />
+          <img src="images/image-avatar.png" alt="avatar" class="h-8 w-8 object-contain" />
         </div>
       </div>
     </header>
@@ -77,7 +77,7 @@
         <!-- Main Product Image -->
         <img
           id="mainProductImage"
-          src="../images/image-product-1.jpg"
+          src="images/image-product-1.jpg"
           alt="Product Image"
           class="w-full rounded-lg object-cover mb-4 transition-opacity duration-300 ease-in-out cursor-pointer"
           onclick="openLightbox()"
@@ -87,25 +87,25 @@
         <div class="grid grid-cols-4 gap-2 md:gap-4">
           <!--Add a thumbnail class to each thumbnail images-->
           <img
-            src="../images/image-product-1-thumbnail.jpg"
+            src="images/image-product-1-thumbnail.jpg"
             alt="Thumbnail 1"
             class="w-full rounded-lg cursor-pointer border-2 border-orange-400 thumbnail"
             onclick="updateMainImage(0)"
           />
           <img
-            src="../images/image-product-2-thumbnail.jpg"
+            src="images/image-product-2-thumbnail.jpg"
             alt="Thumbnail 2"
             class="w-full rounded-lg cursor-pointer thumbnail"
             onclick="updateMainImage(1)"
           />
           <img
-            src="../images/image-product-3.jpg"
+            src="images/image-product-3.jpg"
             alt="Thumbnail 3"
             class="w-full rounded-lg cursor-pointer thumbnail"
             onclick="updateMainImage(2)"
           />
           <img
-            src="../images/image-product-4-thumbnail.jpg"
+            src="images/image-product-4-thumbnail.jpg"
             alt="Thumbnail 4"
             class="w-full rounded-lg cursor-pointer thumbnail"
             onclick="updateMainImage(3)"
@@ -157,12 +157,12 @@
             class="bg-gray-50 flex justify-between items-center border border-gray-300 rounded-lg px-4 py-2 space-x-4 w-full sm:w-auto"
           >
             <button class="decrement">
-              <img src="../images/icon-minus.svg" alt="" />
+              <img src="images/icon-minus.svg" alt="" />
             </button>
             <span class="quantity-display">0</span>
             <!-- Display for quantity -->
             <button class="increment">
-              <img src="../images/icon-plus.svg" alt="" />
+              <img src="images/icon-plus.svg" alt="" />
             </button>
           </div>
 
@@ -227,7 +227,7 @@
           id="closeLightbox"
           class="absolute top-4 right-4 text-white text-3xl"
         >
-          <img src="../images/icon-close.svg" alt="" />
+          <img src="images/icon-close.svg" alt="" />
         </button>
 
         <!-- Main Lightbox Image -->
@@ -243,27 +243,27 @@
           id="prevImage"
           class="absolute top-1/2 left-4 transform -translate-y-1/2 text-white text-2xl bg-gray-800 bg-opacity-50 p-3 rounded-full"
         >
-          <img src="../images/icon-previous.svg" alt="" />
+          <img src="images/icon-previous.svg" alt="" />
         </button>
         <button
           id="nextImage"
           class="absolute top-1/2 right-4 transform -translate-y-1/2 text-white text-2xl bg-gray-800 bg-opacity-50 p-3 rounded-full"
         >
-          <img src="../images/icon-next.svg" alt="" />
+          <img src="images/icon-next.svg" alt="" />
         </button>
 
         <!-- Thumbnails inside Lightbox -->
         <div class="grid grid-cols-4 gap-2 md:gap-4 mt-4">
           <img
             id="lightbox-thumbnail-0"
-            src="../images/image-product-1-thumbnail.jpg"
+            src="images/image-product-1-thumbnail.jpg"
             alt="Lightbox Thumbnail 1"
             class="w-full rounded-lg cursor-pointer border-2 lightbox-thumbnail"
             onclick="showLightboxImage(0)"
           />
           <img
             id="lightbox-thumbnail-1"
-            src="../images/image-product-2-thumbnail.jpg"
+            src="images/image-product-2-thumbnail.jpg"
             alt="Lightbox Thumbnail 2"
             class="w-full rounded-lg cursor-pointer lightbox-thumbnail"
             onclick="showLightboxImage(1)"
@@ -277,7 +277,7 @@
           />
           <img
             id="lightbox-thumbnail-3"
-            src="../images/image-product-4-thumbnail.jpg"
+            src="images/image-product-4-thumbnail.jpg"
             alt="Lightbox Thumbnail 4"
             class="w-full rounded-lg cursor-pointer lightbox-thumbnail"
             onclick="showLightboxImage(3)"
@@ -287,7 +287,7 @@
     </div>
 
     <!-- Javascript source link -->
-    <script src="script.js"></script>
-    <script src="cart.js"></script>
+    <script src="src/script.js"></script>
+    <script src="src/cart.js"></script>
   </body>
 </html>
